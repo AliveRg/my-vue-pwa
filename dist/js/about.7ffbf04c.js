@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkmy_vue_pwa"]=self["webpackChunkmy_vue_pwa"]||[]).push([[443],{350:function(n,e,r){function t(n,e,r,t,u,a){return null}r.r(e),r.d(e,{default:function(){return o}});var u={name:"BascketView",components:{}},a=r(744);const c=(0,a.Z)(u,[["render",t]]);var o=c},725:function(n,e,r){function t(n,e,r,t,u,a){return null}r.r(e),r.d(e,{default:function(){return o}});var u={name:"FavoriteView",components:{}},a=r(744);const c=(0,a.Z)(u,[["render",t]]);var o=c}}]);
+//# sourceMappingURL=about.7ffbf04c.js.map
