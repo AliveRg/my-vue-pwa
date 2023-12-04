@@ -162,6 +162,7 @@ export default {
     justify-content: start;
     align-items: center;
     gap: 54px;
+    z-index: 10;
 }
 
 .logo {
@@ -226,6 +227,9 @@ export default {
     gap: 30px;
 }
 .navigate_inner {
+    background-color: #ffffff7d;
+    border-radius: 10px;
+    padding-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;

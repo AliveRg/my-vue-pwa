@@ -2,8 +2,8 @@
     <div class="">
         <div class="img_link" :style="'background-image: url(' + path + ')'">
             <div class="title_collection">
-                <p class="title_collection_inner">легендарная коллекция</p>
-                <p class="title_collection_inner">“вспомни лето”</p>
+                <p class="title_collection_inner">{{ name }}</p>
+                <p class="title_collection_inner">“{{ description }}”</p>
                 <div class="brend_static">TASTE</div>
             </div>
         </div>
@@ -16,6 +16,8 @@ export default {
     },
     props: {
         path: String,
+        name: String,
+        description: String,
     },
 
     components: {},
