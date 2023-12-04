@@ -37,13 +37,13 @@ export default {
 }
 .title_collection {
     width: 245px;
-    height: 64px;
     background-color: #fff;
     position: relative;
     transform: translateY(50%);
     box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     padding: 7px 9px;
+    padding-bottom: 20px;
     .title_collection_inner {
         color: #000;
         font-family: Montserrat;
