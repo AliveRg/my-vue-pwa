@@ -1,25 +1,64 @@
 <template>
     <div class="">
-        <div class="img_link" :style="`background-image: url('${path}')`"></div>
+        <div class="img_link" :style="'background-image: url(' + path + ')'">
+            <div class="title_collection">
+                <p class="title_collection_inner">легендарная коллекция</p>
+                <p class="title_collection_inner">“вспомни лето”</p>
+                <div class="brend_static">TASTE</div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
 export default {
     data() {
-        return {
-            path: require("../images/122.png"),
-        };
+        return {};
+    },
+    props: {
+        path: String,
     },
 
     components: {},
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 .img_link {
     width: 100vw;
     height: 100vw;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    backdrop-filter: brightness(25%);
+}
+.title_collection {
+    width: 245px;
+    height: 64px;
+    background-color: #fff;
+    position: relative;
+    transform: translateY(50%);
+    box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding: 7px 9px;
+    .title_collection_inner {
+        color: #000;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+    }
+}
+.brend_static {
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
+    color: #000;
+
+    font-family: Montserrat;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 800;
 }
 </style>
