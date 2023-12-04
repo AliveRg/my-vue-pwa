@@ -7,25 +7,35 @@
         </div>
         <p class="lago_name">bondarenko</p>
     </div>
-    <router-view />
-    <nav class="navigate">
-        <router-link to="/favorite">
-            <div class="item_menu">
-                <Favorite />
-            </div>
-        </router-link>
+    <div class="mtbod">
+        <router-view />
+    </div>
 
-        <div class="item_menu">
-            <Search />
-        </div>
-        <router-link to="/bascket">
-            <div class="item_menu">
-                <Bascket />
+    <nav class="navigate">
+        <transition name="search">
+            <div class="search_inp" v-if="openSearch">
+                <input placeholder="пуховик..." type="text" />
             </div>
-        </router-link>
+        </transition>
+        <div class="navigate_inner">
+            <router-link to="/favorite" @click="openSearch = false">
+                <div class="item_menu">
+                    <Favorite />
+                </div>
+            </router-link>
+
+            <div class="item_menu" @click="openSearchMet()">
+                <Search />
+            </div>
+            <router-link to="/bascket" @click="openSearch = false">
+                <div class="item_menu">
+                    <Bascket />
+                </div>
+            </router-link>
+        </div>
     </nav>
     <Transition>
-        <div class="open_menu" v-if="openMenu" @click.self="openMenuMet()">
+        <div class="open_menu" v-if="openMenu" @click="openSearch = false">
             <div class="wrapper_open_menu">
                 <div class="close_btn_menu">
                     <div
@@ -42,6 +52,17 @@
                     </div>
                     <p class="description_log_name">живи стильно</p>
                 </div>
+                <div class="inner_link">
+                    <router-link to="/" @click.self="openMenuMet()"
+                        >главная</router-link
+                    >
+                    <router-link to="/about" @click.self="openMenuMet()"
+                        >о нас</router-link
+                    >
+                    <router-link to="/sponsors" @click.self="openMenuMet()"
+                        >спонсоры</router-link
+                    >
+                </div>
             </div>
         </div>
     </Transition>
@@ -55,11 +76,15 @@ export default {
     data() {
         return {
             openMenu: false,
+            openSearch: false,
         };
     },
     methods: {
         openMenuMet() {
             this.openMenu = !this.openMenu;
+        },
+        openSearchMet() {
+            this.openSearch = !this.openSearch;
         },
     },
     components: {
@@ -77,7 +102,29 @@ export default {
     transition: 0.5s ease;
     transform: translateX(0);
 }
-
+.search-enter-active,
+.search-leave-active {
+    transition: 0.3s ease;
+    transform: translateX(0);
+}
+.search-enter-from,
+.search-leave-to {
+    opacity: 0;
+    transform: translateX(-5%);
+}
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.mtbod {
+    margin-top: 52px;
+}
 .close_btn_menu {
     margin: 20px 0;
 }
@@ -105,11 +152,6 @@ export default {
     transform: rotate(-45deg);
 }
 
-.v-enter-from,
-.v-leave-to {
-    opacity: 0;
-    transform: translateX(-100%);
-}
 .flex_nav {
     position: fixed;
     top: 0;
@@ -144,6 +186,7 @@ export default {
     padding-left: 22px;
 }
 .open_menu {
+    top: 0;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -178,8 +221,30 @@ export default {
     padding: 14px 30px;
     margin-bottom: 8px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+.navigate_inner {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.search_inp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    input {
+        color: #000;
+        font-family: Montserrat;
+        font-size: 17px;
+        font-weight: 500;
+        padding: 14px 21px;
+        border-radius: 30px;
+        border: 3px solid #000;
+        width: 100%;
+        height: 36px;
+    }
 }
 .lago_name {
     color: #000;
@@ -189,6 +254,22 @@ export default {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+.inner_link {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    line-height: normal;
+    a {
+        padding-left: 20px;
+        color: rgba(0, 0, 0);
+        text-decoration: none;
+        font-weight: 600;
+    }
 }
 @media (min-width: 400px) {
     .navigate {
