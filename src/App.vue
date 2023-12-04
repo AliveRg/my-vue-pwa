@@ -187,6 +187,7 @@ export default {
     padding-left: 22px;
 }
 .open_menu {
+    z-index: 15;
     top: 0;
     position: fixed;
     width: 100vw;
