@@ -2,6 +2,7 @@
     <div class="flex_nav">
         <div class="menu" @click="openMenuMet()">
             <span class="inner_block_menu"></span>
+            <span class="inner_block_menu center_burg_m"></span>
             <span class="inner_block_menu"></span>
         </div>
         <p class="lago_name">bondarenko</p>
@@ -23,15 +24,27 @@
             </div>
         </router-link>
     </nav>
-    <div class="open_menu" v-if="openMenu" @click.self="openMenuMet()">
-        <div class="wrapper_open_menu">
-            <div class="name_log">
-                <p>bondarenko</p>
-                <p>живи стильно</p>
+    <Transition>
+        <div class="open_menu" v-if="openMenu" @click.self="openMenuMet()">
+            <div class="wrapper_open_menu">
+                <div class="close_btn_menu">
+                    <div
+                        class="close_btn_inner"
+                        @click.self="openMenuMet()"
+                    ></div>
+                </div>
+                <div class="name_log">
+                    <div class="open_menu_content">
+                        <p>bondarenko</p>
+                        <div class="logo">
+                            <img src="./images/logo.png" alt="" />
+                        </div>
+                    </div>
+                    <p class="description_log_name">живи стильно</p>
+                </div>
             </div>
-            <div class="logo"><img src="./images/logo.png" alt="" /></div>
         </div>
-    </div>
+    </Transition>
 </template>
 
 <script>
@@ -59,18 +72,77 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+.v-enter-active,
+.v-leave-active {
+    transition: 0.5s ease;
+    transform: translateX(0);
+}
 
+.close_btn_menu {
+    margin: 20px 0;
+}
+.close_btn_inner {
+    width: 36px;
+    height: 36px;
+}
+
+.close_btn_inner::before,
+.close_btn_inner::after {
+    content: "";
+    position: absolute;
+    top: 35px;
+    display: block;
+    width: 35px;
+    height: 3.5px;
+    background: #000;
+}
+
+.close_btn_inner::before {
+    transform: rotate(45deg);
+}
+
+.close_btn_inner::after {
+    transform: rotate(-45deg);
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+}
 .flex_nav {
     position: fixed;
     top: 0;
+    padding: 14px 30px;
     width: 100%;
     padding-top: 9px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 54px;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    img {
+        width: 52px;
+    }
+}
+.name_log {
+    color: rgba(0, 0, 0, 0.36);
+
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    line-height: normal;
+    p {
+        font-weight: 600;
+    }
+}
+.description_log_name {
+    padding-left: 22px;
+}
 .open_menu {
     position: fixed;
     width: 100vw;
@@ -82,6 +154,20 @@ export default {
         width: 90vw;
         height: 100vh;
         background-color: #f8a175;
+        padding: 0px 26px;
+    }
+    .open_menu_content {
+        color: #000;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 24px;
+        p {
+            font-weight: 600;
+        }
     }
 }
 
@@ -93,7 +179,7 @@ export default {
     margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
-    align-items: top;
+    align-items: center;
 }
 .lago_name {
     color: #000;
@@ -113,22 +199,30 @@ export default {
 
     .item_menu {
         width: 48px;
+        padding: 6px;
     }
+}
+.item_menu {
+    width: 48px;
+    padding: 6px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     gap: 6px;
-    width: 48px;
+    width: 41px;
 }
 
 .inner_block_menu {
-    height: 7.5px;
-
+    height: 4px;
     width: 100%;
     background: #000;
+    border-radius: 2px;
+}
+.center_burg_m {
+    width: 31px;
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
