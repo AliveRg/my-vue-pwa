@@ -1,20 +1,37 @@
 <template>
-    <router-view />
-    <nav class="navigate">
-        <div class="menu">
-            <span class="inner_block_menu"></span>
+    <div class="flex_nav">
+        <div class="menu" @click="openMenuMet()">
             <span class="inner_block_menu"></span>
             <span class="inner_block_menu"></span>
         </div>
+        <p class="lago_name">bondarenko</p>
+    </div>
+    <router-view />
+    <nav class="navigate">
         <router-link to="/favorite">
-            <Favorite />
+            <div class="item_menu">
+                <Favorite />
+            </div>
         </router-link>
-        <p class="">bondarenko</p>
-        <Search />
+
+        <div class="item_menu">
+            <Search />
+        </div>
         <router-link to="/bascket">
-            <Bascket />
+            <div class="item_menu">
+                <Bascket />
+            </div>
         </router-link>
     </nav>
+    <div class="open_menu" v-if="openMenu" @click.self="openMenuMet()">
+        <div class="wrapper_open_menu">
+            <div class="name_log">
+                <p>bondarenko</p>
+                <p>живи стильно</p>
+            </div>
+            <div class="logo"><img src="./images/logo.png" alt="" /></div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -23,7 +40,14 @@ import Favorite from "./components/Favorite.vue";
 import Search from "./components/Search.vue";
 export default {
     data() {
-        return {};
+        return {
+            openMenu: false,
+        };
+    },
+    methods: {
+        openMenuMet() {
+            this.openMenu = !this.openMenu;
+        },
     },
     components: {
         Bascket,
@@ -36,6 +60,31 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
+.flex_nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 54px;
+}
+
+.open_menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+
+    .wrapper_open_menu {
+        position: absolute;
+        width: 90vw;
+        height: 100vh;
+        background-color: #f8a175;
+    }
+}
+
 .navigate {
     position: fixed;
     bottom: 0;
@@ -45,25 +94,40 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: top;
-    p {
-        color: #000;
+}
+.lago_name {
+    color: #000;
 
-        font-family: Montserrat;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+@media (min-width: 400px) {
+    .navigate {
+        p {
+            font-size: 24px;
+        }
+    }
+
+    .item_menu {
+        width: 48px;
     }
 }
+
 .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
+    width: 48px;
 }
+
 .inner_block_menu {
-    height: 3.5px;
-    width: 35px;
+    height: 7.5px;
+
+    width: 100%;
     background: #000;
 }
 
