@@ -38,6 +38,14 @@ const routes = [
             return import("../views/FavoriteView.vue");
         },
     },
+    {
+        path: "/catalogView/:id",
+        name: "catalog",
+
+        component: function () {
+            return import("../views/Catalog.vue");
+        },
+    },
 ];
 
 const router = createRouter({

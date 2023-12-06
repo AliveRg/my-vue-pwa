@@ -6,6 +6,7 @@
             :path="`../img/${index.img}.webp`"
             :name="index.name"
             :description="index.description"
+            :route="index.route"
         ></Collection>
     </div>
 </template>
@@ -19,45 +20,53 @@ export default {
     data() {
         return {
             Collection: {
-                1: {
+                9: {
                     name: "легендарная коллекция ",
                     description: "вспомни лето",
-                    img: "1",
+                    img: "9",
+                    route: "9",
                 },
                 2: {
                     name: "зимние аутфиты  ",
                     description: "стильные зимы",
                     img: "2",
+                    route: "2",
                 },
                 3: {
                     name: "Городские Огоньки",
                     description: "Городская Элегантность",
                     img: "3",
+                    route: "3",
                 },
                 4: {
                     name: "Лазурные Грёзы",
                     description: "Прибрежная Сложность",
                     img: "4",
+                    route: "4",
                 },
                 5: {
                     name: "Винтажная Мечта",
                     description: "Временной Шарм",
                     img: "5",
+                    route: "5",
                 },
                 6: {
                     name: "Мистические Луга",
                     description: "Очаровательные Флоры",
                     img: "6",
+                    route: "6",
                 },
                 7: {
                     name: "Шелковые Шепоты",
                     description: "Сияющий Стиль",
                     img: "7",
+                    route: "7",
                 },
                 8: {
                     name: "Гармония Оттенков",
                     description: "Сбалансированная Палитра",
                     img: "8",
+                    route: "8",
                 },
             },
         };

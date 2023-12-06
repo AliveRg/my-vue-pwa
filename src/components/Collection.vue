@@ -1,5 +1,5 @@
 <template>
-    <a href="" class="wrapper_collectoin">
+    <router-link :to="`/catalogView/${route}`" class="wrapper_collectoin">
         <div class="img_link" :style="'background-image: url(' + path + ')'">
             <div class="title_collection">
                 <p class="title_collection_inner">{{ name }}</p>
@@ -7,7 +7,7 @@
                 <div class="brend_static">TASTE</div>
             </div>
         </div>
-    </a>
+    </router-link>
 </template>
 <script>
 export default {
@@ -18,6 +18,7 @@ export default {
         path: String,
         name: String,
         description: String,
+        route: String,
     },
 
     components: {},
@@ -26,6 +27,7 @@ export default {
 <style scoped lang="scss">
 .wrapper_collectoin {
     box-shadow: 0px -7px 49px 0px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
 }
 .img_link {
     width: 100vw;
