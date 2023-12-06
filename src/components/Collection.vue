@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <a href="" class="wrapper_collectoin">
         <div class="img_link" :style="'background-image: url(' + path + ')'">
             <div class="title_collection">
                 <p class="title_collection_inner">{{ name }}</p>
@@ -7,7 +7,7 @@
                 <div class="brend_static">TASTE</div>
             </div>
         </div>
-    </div>
+    </a>
 </template>
 <script>
 export default {
@@ -24,6 +24,9 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.wrapper_collectoin {
+    box-shadow: 0px -7px 49px 0px rgba(0, 0, 0, 0.25);
+}
 .img_link {
     width: 100vw;
     height: 100vw;

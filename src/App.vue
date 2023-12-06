@@ -192,7 +192,7 @@ export default {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
 
     .wrapper_open_menu {
         position: absolute;
