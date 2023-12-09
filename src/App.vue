@@ -1,10 +1,5 @@
 <template>
     <div class="flex_nav">
-        <div class="menu" @click="openMenuMet()">
-            <span class="inner_block_menu"></span>
-            <span class="inner_block_menu center_burg_m"></span>
-            <span class="inner_block_menu"></span>
-        </div>
         <p class="lago_name">bondarenko</p>
     </div>
     <div class="mtbod">
@@ -18,11 +13,11 @@
             </div>
         </transition>
         <div class="navigate_inner">
-            <router-link to="/favorite" @click="openSearch = false">
-                <div class="item_menu">
-                    <Favorite />
-                </div>
-            </router-link>
+            <div class="menu" @click="openMenuMet()">
+                <span class="inner_block_menu"></span>
+                <span class="inner_block_menu center_burg_m"></span>
+                <span class="inner_block_menu"></span>
+            </div>
 
             <div class="item_menu" @click="openSearchMet()">
                 <Search />
@@ -159,7 +154,7 @@ export default {
     width: 100%;
     padding-top: 9px;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 54px;
     z-index: 10;
@@ -309,6 +304,9 @@ export default {
 }
 .center_burg_m {
     width: 31px;
+}
+.mtbod {
+    margin-bottom: 150px;
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
