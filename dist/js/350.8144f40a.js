@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkmy_vue_pwa"]=self["webpackChunkmy_vue_pwa"]||[]).push([[350],{350:function(e,n,u){function t(e,n,u,t,r,a){return null}u.r(n),u.d(n,{default:function(){return s}});var r={name:"BascketView",components:{}},a=u(744);const c=(0,a.Z)(r,[["render",t]]);var s=c}}]);
-//# sourceMappingURL=350.8144f40a.js.map
