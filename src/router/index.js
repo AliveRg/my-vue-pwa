@@ -31,14 +31,6 @@ const routes = [
         },
     },
     {
-        path: "/favorite",
-        name: "favorite",
-
-        component: function () {
-            return import("../views/FavoriteView.vue");
-        },
-    },
-    {
         path: "/catalogView/:id",
         name: "catalog",
 

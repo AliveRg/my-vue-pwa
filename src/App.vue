@@ -65,7 +65,6 @@
 
 <script>
 import Bascket from "./components/Bascket.vue";
-import Favorite from "./components/Favorite.vue";
 import Search from "./components/Search.vue";
 export default {
     data() {
@@ -84,7 +83,7 @@ export default {
     },
     components: {
         Bascket,
-        Favorite,
+
         Search,
     },
 };
@@ -149,7 +148,7 @@ export default {
 
 .flex_nav {
     position: fixed;
-    top: 0;
+    top: 0px;
     padding: 14px 30px;
     width: 100%;
     padding-top: 9px;
